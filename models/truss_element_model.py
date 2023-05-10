@@ -64,8 +64,3 @@ class TrussElement:
 
     def __str__(self):
         return f"start at {self.bCoordinate} | ends at {self.eCoordinate} | area : {self.A}"
-
-
-def get_degrees_of_truss_element(start_node, end_node):
-
-    return degrees
