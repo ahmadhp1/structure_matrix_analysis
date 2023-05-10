@@ -5,15 +5,26 @@ from models.coordinate_model import Coordinate
 
 
 class TrussElement:
-    def __init__(self, id, start_x, start_y, end_x, end_y, A, E):
+    def __init__(self, id, start_node, end_node, A, E):
         self.id = id
-        self.bCoordinate = Coordinate(start_x, start_y)
-        self.eCoordinate = Coordinate(end_x, end_y)
+        self.bCoordinate = start_node.coordinate
+        self.eCoordinate = end_node.coordinate
         self.A = A
         self.E = E
 
         self.delta = None
         self.forces = None
+
+        self.start_node = start_node
+        self.end_node = end_node
+
+        start_node_number = start_node.number
+        end_node_number = end_node.number
+
+        self.degrees = [
+            (start_node_number * 2) - 1, (start_node_number * 2),
+            (end_node_number * 2) - 1, (end_node_number * 2),
+        ]
 
     def _dx_dy(self):
         dx = self.eCoordinate.x - self.bCoordinate.x
@@ -40,5 +51,21 @@ class TrussElement:
                      )
         return T
 
+    def localK(self):
+        S = (self.E * self.A) / self.length()
+        k = np.array([[S, 0, -S, 0],
+                      [0, 0, 0, 0],
+                      [-S, 0, S, 0],
+                      [0, 0, 0, 0]])
+        return k
+
+    def globalK(self):
+        return self.T().T @ self.localK() @ self.T()
+
     def __str__(self):
         return f"start at {self.bCoordinate} | ends at {self.eCoordinate} | area : {self.A}"
+
+
+def get_degrees_of_truss_element(start_node, end_node):
+
+    return degrees

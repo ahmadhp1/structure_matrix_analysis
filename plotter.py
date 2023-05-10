@@ -1,14 +1,7 @@
 import matplotlib.pyplot as plt
 
 
-def plot_truss(elements, supports):
-    # print('hello')
-    # for element in elements:
-    #     print(element)
-
-    # for support in supports:
-    #     print(support)
-
+def plot_truss(elements, supports, nodes):
     fig, ax = plt.subplots()
 
     for element in elements:
@@ -23,5 +16,8 @@ def plot_truss(elements, supports):
             ax.plot(x, y, 'ro')
         elif support.type == 'roller':
             ax.plot(x, y, 'yo')
+
+    for node in nodes:
+        ax.annotate(node.id, (node.coordinate.x, node.coordinate.y))
 
     plt.show()
