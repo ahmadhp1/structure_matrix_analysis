@@ -1,0 +1,90 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "x": 72,
+            "y": 288
+        },
+        {
+            "id": 2,
+            "x": 216,
+            "y": 288
+        },
+        {
+            "id": 3,
+            "x": 0,
+            "y": 0
+        },
+        {
+            "id": 4,
+            "x": 288,
+            "y": 0
+        }
+    ],
+    "elements": [
+        {
+            "id": 1,
+            "start_node": 1,
+            "end_node": 2,
+            "A": 8,
+            "E": 29000
+        },
+        {
+            "id": 2,
+            "start_node": 1,
+            "end_node": 3,
+            "A": 12,
+            "E": 29000
+        },
+        {
+            "id": 3,
+            "start_node": 2,
+            "end_node": 3,
+            "A": 12,
+            "E": 29000
+        },
+        {
+            "id": 4,
+            "start_node": 1,
+            "end_node": 4,
+            "A": 12,
+            "E": 29000
+        },
+        {
+            "id": 5,
+            "start_node": 2,
+            "end_node": 4,
+            "A": 12,
+            "E": 29000
+        }
+    ],
+    "supports": [
+        {
+            "node": 3,
+            "type": "pin",
+            "rotation": 0
+        },
+        {
+            "node": 4,
+            "type": "pin",
+            "rotation": 0
+        }
+    ],
+    "forces": [
+        {
+            "node": 1,
+            "value": 120,
+            "rotation": 90
+        },
+        {
+            "node": 1,
+            "value": 60,
+            "rotation": 0
+        },
+        {
+            "node": 2,
+            "value": 120,
+            "rotation": 90
+        }
+    ]
+}

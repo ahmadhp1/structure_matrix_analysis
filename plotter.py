@@ -18,6 +18,6 @@ def plot_truss(elements, supports, nodes):
             ax.plot(x, y, 'yo')
 
     for node in nodes:
-        ax.annotate(node.id, (node.coordinate.x, node.coordinate.y))
+        ax.annotate(node.number, (node.coordinate.x, node.coordinate.y))
 
     plt.show()
