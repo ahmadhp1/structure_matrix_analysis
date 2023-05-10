@@ -1,0 +1,54 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "x": 0,
+            "y": 3
+        },
+        {
+            "id": 2,
+            "x": 4,
+            "y": 3
+        },
+        {
+            "id": 3,
+            "x": 0,
+            "y": 0
+        }
+    ],
+    "elements": [
+        {
+            "id": 1,
+            "start_node": 1,
+            "end_node": 2,
+            "A": 2000,
+            "E": 70
+        },
+        {
+            "id": 2,
+            "start_node": 2,
+            "end_node": 3,
+            "A": 2000,
+            "E": 70
+        }
+    ],
+    "supports": [
+        {
+            "node": 1,
+            "type": "roller",
+            "rotation": 0
+        },
+        {
+            "node": 3,
+            "type": "pin",
+            "rotation": 0
+        }
+    ],
+    "forces": [
+        {
+            "node": 2,
+            "value": 75e3,
+            "rotation": 90
+        }
+    ]
+}
