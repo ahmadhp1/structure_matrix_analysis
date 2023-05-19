@@ -35,7 +35,7 @@
     "supports": [
         {
             "node": 1,
-            "type": "roller",
+            "type": "pin",
             "rotation": 0
         },
         {
@@ -48,7 +48,7 @@
         {
             "node": 2,
             "value": 75e3,
-            "rotation": 90
+            "rotation": 270
         }
     ]
 }

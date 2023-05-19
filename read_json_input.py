@@ -1,5 +1,6 @@
 import json
 from models.coordinate_model import Coordinate
+from models.force_model import Force
 from models.support_model import Support
 from models.truss_element_model import TrussElement
 from models.node_model import Node
@@ -25,11 +26,38 @@ def get_elements(input_path, nodes):
 
 def get_supports(input_path, nodes):
     data = _read_file(input_path)
-    supports = _final_supports_from_json(data, nodes)
+    supports = _find_supports_from_json(data, nodes)
     return supports
 
 
-def _final_supports_from_json(data, nodes):
+def get_forces(input_path, nodes):
+    data = _read_file(input_path)
+    forces = _find_forces_from_json(data, nodes)
+    return forces
+
+
+def _find_forces_from_json(data, nodes):
+    forces = []
+
+    for force in data['forces']:
+        node_id = force['node']
+        value = force['value']
+        rotation = force['rotation']
+
+        _node = None
+
+        for node in nodes:
+            if node.number == node_id:
+                _node = node
+                break
+
+        f = Force(_node, value, rotation)
+        forces.append(f)
+
+    return forces
+
+
+def _find_supports_from_json(data, nodes):
     supports = []
 
     for support in data['supports']:

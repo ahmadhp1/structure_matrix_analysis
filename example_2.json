@@ -62,12 +62,12 @@
         {
             "node": 3,
             "type": "pin",
-            "rotation": 0
+            "rotation": 90
         },
         {
             "node": 4,
             "type": "pin",
-            "rotation": 0
+            "rotation": 90
         }
     ],
     "forces": [
