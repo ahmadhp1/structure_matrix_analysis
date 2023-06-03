@@ -47,7 +47,7 @@
     "forces": [
         {
             "node": 2,
-            "value": 75e3,
+            "value": 75,
             "rotation": 270
         }
     ]

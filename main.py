@@ -17,15 +17,20 @@ forces = get_forces(input, nodes)
 
 truss = Truss(nodes, elements, supports, forces)
 
-result = solve_truss_with_penalty_method(truss)
-print(result)
+delta = solve_truss_with_penalty_method(truss)
+truss.delta = delta
+
+elements_with_delta = []
+for element in truss.elements:
+    elements_with_delta.append(element.apply_delta(delta))
+
+print(elements_with_delta)
+
+print(truss.delta)
 
 end_time = time.time()
 
-
-# np.savetxt('output.txt', stiffnessMatrix, fmt="%.3f")
 print('time:', end_time - start_time)
-print("+++++++++++++++ check output.txt for results +++++++++++++++++")
 
 
-# plot_truss(elements, supports, nodes)
+plot_truss(truss , elements_with_delta)

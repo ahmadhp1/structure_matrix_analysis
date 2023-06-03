@@ -62,5 +62,17 @@ class TrussElement:
     def globalK(self):
         return self.T().T @ self.localK() @ self.T()
 
+    def apply_delta(self, delta):
+        e_delta = []
+        for index, degree in enumerate(self.degrees):
+            _degree = degree - 1
+            if abs(delta[_degree]) > 1e-5:
+                e_delta.append(delta[_degree])
+            else:
+                e_delta.append(0)
+
+        self.delta = e_delta
+        return self
+
     def __str__(self):
         return f"start at {self.bCoordinate} | ends at {self.eCoordinate} | area : {self.A}"

@@ -1,3 +1,4 @@
+import math
 import numpy as np
 
 
@@ -19,9 +20,7 @@ def _get_penalty_stiffness_matrix(truss):
 def solve_truss_with_penalty_method(truss):
     Kp = _get_penalty_stiffness_matrix(truss)
     forces = truss.get_forces_vector()
-    Pp = np.nan_to_num(forces)
-    print('Pp', Pp)
+    p_forces = [0 if math.isnan(x) else round(x, 10) for x in forces]
+    delta = np.linalg.inv(Kp) @ p_forces
 
-    delta = np.transpose(Kp) @ Pp
-
-    print('delta', delta)
+    return delta

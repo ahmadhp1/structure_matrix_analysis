@@ -7,6 +7,7 @@ class Truss:
         self.elements = elements
         self.supports = supports
         self.forces = forces
+        self.delta = None
 
     def get_all_degrees(self):
         all_degrees = []
